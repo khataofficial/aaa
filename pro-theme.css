@@ -1,0 +1,110 @@
+/* ===== My Khata — Professional theme (loaded after all other styles) ===== */
+:root{
+  --pro-navy:#0B1F4B;--pro-blue:#1D4ED8;--pro-blue-2:#2563EB;
+  --accent:#2563EB;--on-accent:#fff;
+  --bg:#F1F5F9;--card:#fff;--card2:#fff;--input:#F8FAFC;--hov:#EEF2F7;
+  --ink:#0F172A;--ink-soft:#64748B;--line:#E2E8F0;
+  --ledger-red:#DC2626;--paid-green:#059669;--amber:#D97706;--blue:#2563EB;
+  --ledger-red-soft:#F87171;--paid-green-soft:#34D399;
+  --card-shadow:0 1px 2px rgba(15,23,42,.06),0 4px 14px rgba(15,23,42,.06);
+  --radius:14px;
+}
+:root[data-theme="dark"]{
+  --bg:#0B1220;--card:#131C2E;--card2:#131C2E;--input:#0B1220;--hov:#1B2740;
+  --ink:#F1F5F9;--ink-soft:#94A3B8;--line:#24324D;
+  --ledger-red:#F87171;--paid-green:#34D399;--amber:#FBBF24;--blue:#60A5FA;
+  --card-shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.28);
+}
+html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg)!important;color:var(--ink);font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased;overscroll-behavior-y:none}
+#root.app{padding-top:0;padding-left:14px;padding-right:14px}
+
+/* ---- header ---- */
+#root header.top{position:sticky;top:0;z-index:60;margin:0 -14px 14px;padding:calc(14px + env(safe-area-inset-top,0px)) 18px 16px;
+  background:linear-gradient(135deg,var(--pro-navy) 0%,#123A8F 55%,var(--pro-blue) 100%);border:0;border-radius:0 0 22px 22px;
+  box-shadow:0 8px 24px rgba(11,31,75,.28);color:#fff}
+#root header.top h1{color:#fff;font-size:19px;font-weight:800;letter-spacing:.2px;margin:0;max-width:52vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#root header.top .sub{color:rgba(255,255,255,.72);font-size:11.5px;font-weight:500;margin-top:3px}
+#root header.top .top-l{gap:12px}
+#root header.top .hdr-av{width:42px;height:42px;border-radius:12px;object-fit:cover;border:2px solid rgba(255,255,255,.35);background:#fff}
+#root header.top .icon-btn{color:#fff;background:rgba(255,255,255,.14);border:0;border-radius:12px;width:40px;height:40px}
+#root header.top .icon-btn:hover{background:rgba(255,255,255,.26)}
+#root header.top .sync-dot{--sd:#4ADE80}
+#root header.top .plan-badge{border:0;border-radius:99px;padding:3px 10px;font-size:11px;font-weight:800}
+#root header.top .plan-badge.free{background:rgba(255,255,255,.18);color:#fff}
+#root header.top .plan-badge.pro{background:#FBBF24;color:#1F2937}
+@media (min-width:820px){#root header.top{border-radius:0 0 22px 22px}}
+
+/* ---- tabs ---- */
+#root .tabs{background:var(--card);border-radius:14px;padding:5px;gap:4px;box-shadow:var(--card-shadow);flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-bottom:16px}
+#root .tabs::-webkit-scrollbar{display:none}
+#root .tab-btn{border:0;background:transparent;color:var(--ink-soft);border-radius:10px;padding:10px 12px;font-weight:700;font-size:13px;min-width:max-content;transition:background .15s,color .15s}
+#root .tab-btn:hover{background:var(--hov)}
+#root .tab-btn.active{background:var(--accent);color:var(--on-accent);box-shadow:0 4px 12px rgba(37,99,235,.35)}
+
+/* ---- summary cards ---- */
+#root .gt-card{background:var(--card);border:0;border-radius:var(--radius);box-shadow:var(--card-shadow);border-top:3px solid var(--accent)}
+#root .gt-card.red{border-top-color:var(--ledger-red)}#root .gt-card.green{border-top-color:var(--paid-green)}
+#root .gt-card.amber{border-top-color:var(--amber)}#root .gt-card.blue{border-top-color:var(--blue)}
+#root .gt-card .label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+#root .gt-card .value{font-size:20px;font-weight:800}
+
+/* ---- customer / generic cards ---- */
+#root .cust-card,#root .stock-card,#root .detail-header,#root .entry-line,#root .ledger-line,#root .ad-card,#root .plan-card,#root .picker-item,#root .set-row,#root .set-prof,#root .pay-box,#root .ad-pop-item,#root .set-note,#root .auth-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--card-shadow)}
+#root .cust-card{transition:transform .12s,box-shadow .12s}
+#root .cust-card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(15,23,42,.12)}
+#root .cust-card::before{width:4px;background:var(--accent)}
+#root .cust-card.defaulter::before{background:var(--ledger-red)}#root .cust-card.cleared::before{background:var(--paid-green)}
+#root .defaulter-badge{background:var(--ledger-red)}#root .cleared-badge{background:var(--paid-green)}
+#root .avatar{background:linear-gradient(135deg,var(--pro-blue),#60A5FA);font-weight:800}
+#root .cust-name{font-weight:700;color:var(--ink)}
+#root .bal-val{font-weight:800}
+
+/* ---- buttons / inputs ---- */
+#root .add-btn{background:var(--accent);color:var(--on-accent);border-radius:12px;padding:13px 18px;font-weight:700;box-shadow:0 6px 16px rgba(37,99,235,.28);border:0}
+#root .add-btn.secondary{background:var(--pro-navy);color:#fff;box-shadow:0 6px 16px rgba(11,31,75,.25)}
+:root[data-theme="dark"] #root .add-btn.secondary{background:#1E3A8A}
+#root .add-btn.blue{background:var(--accent)}
+#root .chip-toggle{border:1px solid var(--line);background:var(--card);color:var(--ink-soft);border-radius:99px;font-weight:700}
+#root .chip-toggle.on{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+#root .search-wrap input,#root .field input,#root .field select,#root .field textarea{background:var(--input);border:1px solid var(--line);border-radius:12px;color:var(--ink);box-shadow:none}
+#root .search-wrap input:focus,#root .field input:focus,#root .field select:focus{outline:0;border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.18)}
+.modal{border-radius:18px;background:var(--card);color:var(--ink);box-shadow:0 20px 50px rgba(2,6,23,.35)}
+.modal h3{font-weight:800;letter-spacing:.1px}
+.modal-actions .confirm{background:var(--accent);color:var(--on-accent);border-radius:12px;font-weight:700}
+.modal-actions .cancel{border-radius:12px}
+.calc-preview{background:var(--hov);border-radius:12px;color:var(--ink)}
+
+/* ---- bulk sale modal ---- */
+.bulk-modal{max-width:520px;max-height:92vh;overflow-y:auto}
+.bulk-hint{font-size:12px;color:var(--ink-soft);line-height:1.5;margin:-4px 0 12px}
+.bulk-bar{display:flex;gap:8px;align-items:center;margin:4px 0 8px}
+.bulk-mini{border:0;background:var(--hov);color:var(--ink);border-radius:10px;padding:10px 12px;font:700 12px Inter,sans-serif;cursor:pointer;white-space:nowrap}
+.bulk-mini:hover{background:var(--line)}
+.bulk-list{max-height:34vh;overflow-y:auto;border:1px solid var(--line);border-radius:12px;margin-bottom:12px;background:var(--input)}
+.bulk-row{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--line)}
+.bulk-row:last-child{border-bottom:0}.bulk-row.on{background:rgba(37,99,235,.08)}
+.bulk-chk{display:flex;align-items:center;gap:10px;flex:1;min-width:0;cursor:pointer}
+.bulk-chk input{width:18px;height:18px;accent-color:var(--accent);flex-shrink:0}
+.bulk-nm{font-weight:700;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bulk-due{font-size:11px;color:var(--ink-soft);white-space:nowrap}
+.bulk-q{width:74px;padding:8px 8px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:600 14px Inter,sans-serif}
+.bulk-q:disabled{opacity:.35}
+@media (max-width:420px){.bulk-due{display:none}}
+
+/* ---- ads polish ---- */
+.ad-err{background:rgba(220,38,38,.08);color:var(--ledger-red);border:1px solid rgba(220,38,38,.2);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.ad-err .link-btn{background:var(--accent);color:var(--on-accent);border:0;border-radius:99px;padding:6px 14px;font-weight:700;cursor:pointer;white-space:nowrap}
+
+/* ---- installed-app feel ---- */
+@media (display-mode:standalone),(display-mode:window-controls-overlay),(display-mode:minimal-ui){
+  body{user-select:none;-webkit-user-select:none}
+  input,textarea,[contenteditable]{user-select:text;-webkit-user-select:text}
+  #root.app{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
+}
+
+/* ---- small refinements ---- */
+#root header.top h1{max-width:60vw}
+#root header.top .plan-badge.free{background:rgba(255,255,255,.2)!important;color:#fff!important}
+.bulk-modal .calc-preview b{color:var(--accent)}
